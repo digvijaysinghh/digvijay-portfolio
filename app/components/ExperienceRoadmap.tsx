@@ -29,7 +29,7 @@ const roles: Role[] = [
   {
     period: 'FEB 2025 — SEP 2025',
     company: 'Hitachi Systems India',
-    companyUrl: 'https://www.hitachi-systems-microclinic.com/',
+    companyUrl: 'https://hitachi-systems.co.in/',
     logo: '/logo-hitachi.png',
     role: 'Cybersecurity VAPT Intern',
     context: 'Web application and API assessment work built around reproducing issues, proving impact, and making remediation practical for the team receiving it.',
