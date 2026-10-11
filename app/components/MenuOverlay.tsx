@@ -39,6 +39,16 @@ export default function MenuOverlay() {
       </button>
       <div id="site-menu" className={`menu-overlay${open ? ' is-open' : ''}`} aria-hidden={!open}>
         <div className="menu-overlay-inner">
+          <button
+            className="menu-close"
+            type="button"
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+            tabIndex={open ? 0 : -1}
+          >
+            <span>Close</span>
+            <span className="menu-mark" aria-hidden="true"><i /><i /></span>
+          </button>
           <p className="eyebrow">INDEX / DIGVIJAY SINGH</p>
           <nav aria-label="Main navigation">
             {links.map((link) => (
