@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Digvijay Singh — Cybersecurity Engineer',
   description:
     'The personal portfolio of Digvijay Singh: cybersecurity engineering, API security, security validation, and practical problem-solving.',
+  icons: { icon: '/icon.svg' },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

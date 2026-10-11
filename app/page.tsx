@@ -1,112 +1,27 @@
+import ExperienceRoadmap from './components/ExperienceRoadmap';
 import MenuOverlay from './components/MenuOverlay';
-
-const disciplines = [
-  { number: '01', name: 'API security', detail: 'Understand the surface. Protect the path.', href: '#work' },
-  { number: '02', name: 'Security validation', detail: 'Test what controls actually do.', href: '#work' },
-  { number: '03', name: 'Vulnerability assessment', detail: 'Find, verify, explain, improve.', href: '#work' },
-  { number: '04', name: 'Quality engineering', detail: 'Make expected behaviour measurable.', href: '#about' },
+import ProfileTerminal from './components/ProfileTerminal';
+import TalkDeck from './components/TalkDeck';
+const certificates=[
+  ['Zscaler Digital Transformation Administrator (ZDTA)','Zscaler','zscaler','https://www.credly.com/badges/c550029e-c247-4a80-a3bc-9c22c5029a05'],
+  ['Zscaler Certified Sales Professional (ZCSP)','Zscaler','zscaler','https://verify.skilljar.com/c/gzn2mpswkji3'],
+  ['Zero Trust Cyber Associate (ZTCA)','Zscaler','zscaler','https://www.credly.com/badges/4b308c9f-c090-4988-9a32-4f736e914ce7'],
+  ['Netskope SSE Administrator','Netskope','netskope','https://verify.skilljar.com/c/cozkowrzvd2t'],
+  ['Netskope SASE Essentials','Netskope','netskope','https://verify.skilljar.com/c/x84vy2ok59g8'],
+  ['Radware Cloud Application Protection Certification Exam','Radware','radware','https://www.linkedin.com/in/digvijaysinghh/'],
+  ['AZ-900 Azure Fundamentals','Microsoft','microsoftazure','https://learn.microsoft.com/en-gb/users/digvijaysingh/credentials/a006e01291169c6e'],
+  ['Jr Penetration Tester Learning Path','TryHackMe','tryhackme','https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-QMMKAH6KI3.pdf'],
+  ['Postman API Fundamentals Student Expert','Postman','postman','https://badges.parchment.com/public/assertions/JnJ1u1zySNK4tJYXIbIMVw'],
 ];
-
-export default function HomePage() {
-  return (
-    <main id="home">
-      <header className="site-header">
-        <a className="wordmark" href="#home" aria-label="Digvijay Singh, home">
-          <span className="wordmark-name">DIGVIJAY SINGH</span>
-          <span className="wordmark-role">CYBERSECURITY / ENGINEERING</span>
-        </a>
-        <div className="header-note"><span className="status-dot" /> PERSONAL SITE / 2026</div>
-        <MenuOverlay />
-      </header>
-
-      <section className="hero section-shell" aria-labelledby="hero-title">
-        <div className="hero-meta eyebrow-row">
-          <span>INDEPENDENTLY CURIOUS. PRACTICALLY MINDED.</span>
-          <span>28°36&apos; N / 77°13&apos; E</span>
-        </div>
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow hero-kicker">HELLO, I&apos;M</p>
-            <h1 id="hero-title">Digvijay<br /><span>Singh<span className="name-period">.</span></span></h1>
-            <div className="hero-bottomline">
-              <p className="hero-title-label">Cybersecurity Engineer<br /><span>working across systems, not just tools.</span></p>
-              <a className="round-link" href="#work" aria-label="Explore selected work"><span>↘</span></a>
-            </div>
-          </div>
-          <div className="hero-art" aria-label="Abstract technical line drawing">
-            <div className="art-label art-label-top">FIG. 01 — REQUEST PATH</div>
-            <svg className="trace-art" viewBox="0 0 520 590" role="img" aria-label="Abstract network paths and connected nodes">
-              <defs>
-                <linearGradient id="traceFade" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#7b9cff" stopOpacity=".8" />
-                  <stop offset="100%" stopColor="#7b9cff" stopOpacity=".08" />
-                </linearGradient>
-              </defs>
-              <path d="M90 72 H225 V158 H365 V260 H438" />
-              <path d="M42 220 H154 V322 H284 V405 H474" />
-              <path d="M115 520 V450 H205 V382 H365 V490" />
-              <path d="M225 158 V48 H320" />
-              <path d="M284 322 V240 H365 V158" />
-              <path d="M154 322 H70 V405 H205" />
-              <path className="trace-highlight" d="M42 220 H154 V322 H284 V405 H474" />
-              {[ [90,72],[225,158],[365,260],[438,260],[42,220],[154,322],[284,405],[474,405],[115,520],[205,382],[365,490],[320,48],[365,158],[70,405] ].map(([cx,cy], index) => (
-                <g key={`${cx}-${cy}`} className={index === 5 || index === 7 ? 'node node-bright' : 'node'}>
-                  <circle cx={cx} cy={cy} r={index === 5 || index === 7 ? 4 : 2.5} />
-                  {(index === 1 || index === 5 || index === 9) && <circle className="node-ring" cx={cx} cy={cy} r="10" />}
-                </g>
-              ))}
-              <text x="244" y="143">INSPECT</text>
-              <text x="303" y="390">DECISION</text>
-              <text x="64" y="205">REQUEST / 001</text>
-              <text x="374" y="477">ORIGIN</text>
-            </svg>
-            <div className="art-caption"><span>TRACE / 001</span><span>FOLLOW THE SIGNAL</span></div>
-            <div className="art-coordinate">FIG. A — ABSTRACT, NOT A PRODUCTION TOPOLOGY</div>
-          </div>
-        </div>
-        <div className="hero-intro-row">
-          <p className="intro-copy">I work across API and web security, security validation, vulnerability assessment, and Zero Trust. I like understanding how systems behave, where they fail, and how to make protection work in the real world.</p>
-          <a className="text-link" href="#work">A little of what I do <span>↘</span></a>
-        </div>
-        <div className="scroll-cue"><span className="scroll-line" /> SCROLL TO EXPLORE</div>
-      </section>
-
-      <section className="work-section section-shell" id="work" aria-labelledby="work-title">
-        <div className="section-heading">
-          <p className="eyebrow">A FEW AREAS I MOVE BETWEEN</p>
-          <span className="section-index">01 — 04</span>
-        </div>
-        <h2 id="work-title">Different layers.<br /><span>One curious mind.</span></h2>
-        <div className="discipline-list">
-          {disciplines.map((item) => (
-            <a className="discipline-row" href={item.href} key={item.number}>
-              <span className="discipline-number">{item.number}</span>
-              <span className="discipline-name">{item.name}</span>
-              <span className="discipline-detail">{item.detail}</span>
-              <span className="discipline-arrow" aria-hidden="true">↗</span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className="about-strip section-shell" id="about">
-        <p className="eyebrow">A NOTE ON HOW I WORK</p>
-        <div className="about-strip-content">
-          <h2>Security is a practice.<br /><span>Not a list of products.</span></h2>
-          <p>I enjoy the work between the obvious steps: tracing dependencies, asking what a control actually changed, and making the result understandable to the people who rely on it.</p>
-        </div>
-      </section>
-
-      <footer className="site-footer section-shell" id="contact">
-        <div><p className="eyebrow">HAVE SOMETHING INTERESTING?</p><h2>Let&apos;s talk<span>.</span></h2></div>
-        <div className="footer-links">
-          <a href="https://www.linkedin.com/in/digvijaysinghh/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href="https://github.com/digvijaysinghh" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="https://tryhackme.com/p/digvijaysinghh" target="_blank" rel="noreferrer">TryHackMe ↗</a>
-          <span className="email-note">Dedicated email to be added</span>
-        </div>
-        <div className="footer-bottom"><span>© 2026 DIGVIJAY SINGH</span><span>MADE WITH INTENTION, NOT A TEMPLATE.</span><a href="#home">BACK TO TOP ↑</a></div>
-      </footer>
-    </main>
-  );
-}
+const issuerLogos: Record<string, string> = { Zscaler: '/logo-zscaler.png', Radware: '/logo-radware.png', Microsoft: '/logo-microsoft.png' };
+const work=[['01','Enterprise API security','API discovery, posture assessment, policy tuning, and security-event investigation.'],['02','Control validation','Breach and attack simulation to test what protections detect and miss.'],['03','Vulnerability assessment','Evidence-led assessment of web applications and APIs.'],['04','Quality engineering','Testing expected behaviour before it becomes a production problem.']];
+export default function HomePage(){return <main id="home">
+  <header className="site-header"><a className="wordmark" href="#home" aria-label="Digvijay Singh, home">DIGVIJAY SINGH<span> / SECURITY ENGINEERING</span></a><nav className="section-nav" aria-label="Portfolio sections"><a href="#community">Talks</a><a href="#experience">Experience</a><a href="#credentials">Credentials</a><a href="#work">Work</a><a href="#testimonials">Recommendations</a></nav><div className="header-links"><a href="https://www.linkedin.com/in/digvijaysinghh/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/digvijaysinghh" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://tryhackme.com/p/digvijaysinghh" target="_blank" rel="noreferrer">TryHackMe ↗</a></div><MenuOverlay /></header>
+  <section className="hero" aria-labelledby="hero-title"><div className="hero-grain" aria-hidden="true"/><div className="hero-top mono"><span>NEW DELHI, INDIA</span><span>AVAILABLE FOR THE RIGHT PROBLEM</span></div><div className="hero-content"><p className="mono hero-index">SECURITY ENGINEER / 01</p><h1 id="hero-title">Digvijay<br/><span>Singh.</span></h1><p className="hero-manifesto">I investigate what a system is doing, why a control reacts, and where the real risk is hiding.</p><ProfileTerminal/></div><div className="hero-bottom"><span className="mono">API SECURITY · BAS · VAPT · ZERO TRUST</span><a href="#community" className="mono">EXPLORE THE RECORD ↓</a></div></section>
+  <section className="talks-section" id="community" aria-labelledby="talks-title"><div className="section-bar"><p className="mono">01 / COMMUNITY & TALKS</p><span className="mono">MLSA · GDG · SECURITY EDUCATION</span></div><div className="talks-heading"><h2 id="talks-title">Learning in public.<br/><span>Teaching in practice.</span></h2><p>Workshop sessions, CTFs, and the moments that turned study into something shared.</p></div><TalkDeck/><a className="talk-media" href="https://youtu.be/mCBwmQ_efmA?si=SO1Hjx0HoHxllcYX" target="_blank" rel="noreferrer"><img src="/burp-suite-session.png" alt="Digvijay presenting a Burp Suite session online" /><span>WATCH THE BURP SUITE SESSION ↗</span></a></section>
+  <section className="experience-section" id="experience" aria-labelledby="experience-title"><div className="section-bar"><p className="mono">02 / EXPERIENCE</p><span className="mono">SELECT A POINT ON THE TIMELINE</span></div><div className="experience-heading"><h2 id="experience-title">The work behind<br/>the point of view.</h2><p>Three roles, one growing practice: moving from testing systems to protecting and validating them in production.</p></div><ExperienceRoadmap/></section>
+  <section className="credentials-section" id="credentials" aria-labelledby="credentials-title"><div className="section-bar"><p className="mono">03 / CREDENTIALS</p><span className="mono">VERIFIABLE RECORDS</span></div><div className="credentials-heading"><h2 id="credentials-title">Proof of<br/><span>continued practice.</span></h2><p>Each credential links to its verification record where one is available.</p></div><div className="certificate-grid">{certificates.map(([name,issuer,logo,link],index)=><a className="certificate" href={link} target="_blank" rel="noreferrer" key={name}><span className="certificate-no mono">0{index+1}</span><div className="issuer-image">{issuerLogos[issuer] ? <img src={issuerLogos[issuer]} alt={`${issuer} logo`}/> : <span>{issuer}</span>}</div><div><p className="mono">{issuer}</p><h3>{name}</h3><span className="certificate-link">Verify credential ↗</span></div></a>)}</div></section>
+  <section className="work-section" id="work" aria-labelledby="work-title"><div className="section-bar"><p className="mono">03 / DEEPER WORK</p><span className="mono">CASE STUDIES / IN DEVELOPMENT</span></div><h2 id="work-title">Once you know the<br/>journey, <span>look closer.</span></h2><div className="work-list">{work.map(([number,title,description])=><article className="work-row" key={number}><span className="mono">{number}</span><h3>{title}</h3><p>{description}</p><span className="work-arrow">↗</span></article>)}</div></section>
+  <section className="testimonials" id="testimonials" aria-labelledby="testimonials-title"><div className="section-bar"><p className="mono">05 / RECOMMENDATIONS</p><span className="mono">THREE PEOPLE, THREE PERSPECTIVES</span></div><h2 id="testimonials-title">How the work<br/><span>lands with people.</span></h2><div className="quote-stack"><blockquote><p>“He moved from power user to a key member of the tech team—taking ownership of QA, regression automation, penetration testing, user support, and requirements.”</p><footer><a href="https://www.linkedin.com/in/bozadziev/" target="_blank" rel="noreferrer">Nikola Bozadziev ↗</a><span> / AI Manager, Generali Česká pojišťovna</span></footer></blockquote><blockquote><p>“His detail orientation ensures no stone is left unturned. He is proactive, adaptable, reflective, and a teammate who uplifts the people around him.”</p><footer><a href="https://www.linkedin.com/in/alarinaa/" target="_blank" rel="noreferrer">Anastassiya Larina ↗</a><span> / UX Designer & Business Analyst, e1133</span></footer></blockquote><blockquote><p>“He combines creative problem-solving with initiative, startup-minded openness, and a serious commitment to making cybersecurity work matter in practice.”</p><footer><a href="https://www.linkedin.com/in/lauragenous/" target="_blank" rel="noreferrer">Laura R. King ↗</a><span> / Community Engagement Consultant</span></footer></blockquote></div></section>
+  <footer className="contact-section" id="contact"><p className="mono">05 / CONTACT</p><h2>Have a problem<br/>worth tracing?</h2><div className="contact-body"><p>For cybersecurity engineering, consulting, or a technical conversation.</p><div><a href="mailto:digvijay050203@gmail.com">digvijay050203@gmail.com ↗</a><a href="https://www.linkedin.com/in/digvijaysinghh/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/digvijaysinghh" target="_blank" rel="noreferrer">GitHub ↗</a></div></div><div className="footer-base mono"><span>© 2026 DIGVIJAY SINGH</span><a href="#home">BACK TO TOP ↑</a></div></footer>
+</main>}

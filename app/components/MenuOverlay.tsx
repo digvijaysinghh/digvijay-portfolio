@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react';
 
 const links = [
   { label: 'Home', href: '#home', number: '01' },
-  { label: 'Selected work', href: '#work', number: '02' },
-  { label: 'About', href: '#about', number: '03' },
-  { label: 'Contact', href: '#contact', number: '04' },
+  { label: 'Experience', href: '#experience', number: '02' },
+  { label: 'Credentials', href: '#credentials', number: '03' },
+  { label: 'Work', href: '#work', number: '04' },
+  { label: 'Contact', href: '#contact', number: '05' },
 ];
 
 export default function MenuOverlay() {
