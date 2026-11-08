@@ -13,12 +13,13 @@ const entries = [
 export default function TalkDeck() {
   const [active, setActive] = useState(0);
   const entry = entries[active];
+
   return <div className="talk-deck">
     <div className="talk-menu" role="tablist" aria-label="Talks and achievements">
       {entries.map((item, index) => <button key={item.label} role="tab" aria-selected={active === index} onClick={() => setActive(index)}><span>0{index + 1}</span>{item.label}</button>)}
     </div>
     <article className="talk-stage">
-      <img src={entry.image} alt="" />
+      <div className="talk-stage-media"><img src={entry.image} alt="" /></div>
       <div className="talk-stage-copy"><p className="mono">SELECTED RECORD / 0{active + 1}</p><h3>{entry.title}</h3><p>{entry.text}</p><a href={entry.link} target={entry.link.startsWith('http') ? '_blank' : undefined} rel="noreferrer">Open source ↗</a></div>
     </article>
   </div>;

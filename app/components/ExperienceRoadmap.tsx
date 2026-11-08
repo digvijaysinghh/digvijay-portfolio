@@ -14,6 +14,26 @@ type Role = {
   technologies: string[];
 };
 
+function TechnologyCards({ technologies }: { technologies: string[] }) {
+  return (
+    <div className="tool-tags" aria-label="Tools and technologies">
+      {technologies.map((tech) => (
+        <span
+          className="liquid-tool"
+          key={tech}
+          onMouseMove={(event) => {
+            const bounds = event.currentTarget.getBoundingClientRect();
+            event.currentTarget.style.setProperty('--pointer-x', `${event.clientX - bounds.left}px`);
+            event.currentTarget.style.setProperty('--pointer-y', `${event.clientY - bounds.top}px`);
+          }}
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 const roles: Role[] = [
   {
     period: 'SEP 2025 — PRESENT',
@@ -69,9 +89,9 @@ export default function ExperienceRoadmap() {
               <div className="roadmap-panel-inner">
                 <p className="roadmap-context">{item.context}</p>
                 <div className="roadmap-columns">
-                  <div><p className="panel-label mono">WHAT I DID</p><ul>{item.did.map((detail) => <li key={detail}>{detail}</li>)}</ul></div>
-                  <div><p className="panel-label mono">KEY LEARNING</p><p>{item.learned}</p></div>
-                  <div><p className="panel-label mono">TOOLS & TECHNOLOGIES</p><div className="tool-tags">{item.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div></div>
+                  <div className="roadmap-work"><p className="panel-label mono">WHAT I DID</p><ul>{item.did.map((detail) => <li key={detail}>{detail}</li>)}</ul></div>
+                  <div className="roadmap-learning"><p className="panel-label mono">KEY LEARNING</p><p>{item.learned}</p></div>
+                  <div className="roadmap-tools"><p className="panel-label mono">TOOLS & TECHNOLOGIES</p><TechnologyCards technologies={item.technologies} /></div>
                 </div>
               </div>
             </div>

@@ -42,12 +42,12 @@ export default function MenuOverlay() {
           <button
             className="menu-close"
             type="button"
-            aria-label="Close menu"
+            aria-label="Go back and close menu"
             onClick={() => setOpen(false)}
             tabIndex={open ? 0 : -1}
           >
-            <span>Close</span>
-            <span className="menu-mark" aria-hidden="true"><i /><i /></span>
+            <span aria-hidden="true">←</span>
+            <span>Back</span>
           </button>
           <p className="eyebrow">INDEX / DIGVIJAY SINGH</p>
           <nav aria-label="Main navigation">
